@@ -2,7 +2,7 @@ var tpApp = angular.module('tpApp', ['angular-svg-round-progress']);
 
 tpApp.controller('tplinkController', function ( $scope, $filter, $timeout ) {
   // __ seconds countdown til video auto plays
-  $scope.video_every = 10;
+  $scope.video_every = 60;
   $scope.video_autocountdown = true;
   // round the time calculations to __ decimal places
   $scope.time_decimals = 2;

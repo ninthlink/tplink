@@ -1,0 +1,63 @@
+<!doctype html>
+<html ng-app="tpApp">
+  <head>
+    <title>TP Link Demo</title>
+    <link href="includes/style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body ng-controller="tplinkController">
+    <video id="tpv" width="100%" height="100%" controls ng-if="showvideo">
+      <source src="video/demo.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+    </video>
+  
+    <table ng-cloak ng-hide="showvideo">
+      <thead>
+        <tr>
+          <th>
+            <div class="progress-wrapper">
+              <a ng-click="toggleTicking()" class="pbtn">
+                <div ng-show="video_ticking">||</div>
+                <div ng-hide="video_ticking">&gt;</div>
+              </a>
+              <div
+                round-progress
+                max="video_every"
+                current="video_timeuntil"
+                color="#ff0"
+                bgcolor="#333"
+                radius="15"
+                semi="false"
+                rounded="true"
+                clockwise="true"
+                responsive="false"
+                stroke="2"
+                animation="easeOutCubic">
+              </div>
+            </div>
+          </th>
+          <th>11ac<br />{{mbps.ac}} MBPS</th>
+          <th><strong>11ad</strong><br /><input type="num" name="admbps" ng-model="mbps.ad" size="4"> MBPS</th>
+          <th>Gigabit Ethernet<br />{{mbps.eth}} MBPS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="row in files">
+          <td class="label">
+            <span class="icn" ng-class="row.type"></span><strong class="title">{{row.name}}</strong><br />
+            <strong>SIZE:</strong> {{row.mbstr}} &nbsp;|&nbsp; <strong>QTY:</strong> {{row.qty}}
+          </td>
+          <td class="num ac">{{formatTime( row.timing.ac.time )}}</td>
+          <td class="num ad">{{formatTime( row.timing.ad.time )}}</td>
+          <td class="num eth">{{formatTime( row.timing.eth.time )}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <!--
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
+    -->
+    <script type="text/javascript" src="includes/angular.min.js"></script>
+    
+    <script type="text/javascript" src="includes/roundProgress.min.js"></script>
+    <script type="text/javascript" src="includes/app.js"></script>
+  </body>
+</html>

@@ -2,6 +2,7 @@
 <html ng-app="tpApp">
   <head>
     <title>TP Link Demo</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,300,300italic' rel='stylesheet' type='text/css'>
     <link href="includes/style.css" rel="stylesheet" type="text/css">
   </head>
   <body ng-controller="tplinkController">
@@ -13,42 +14,68 @@
     <table ng-cloak ng-hide="showvideo">
       <thead>
         <tr>
-          <th>
-            <div class="progress-wrapper">
-              <a ng-click="toggleTicking()" class="pbtn">
-                <div ng-show="video_ticking">||</div>
-                <div ng-hide="video_ticking">&gt;</div>
-              </a>
-              <div
-                round-progress
-                max="video_every"
-                current="video_timeuntil"
-                color="#ff0"
-                bgcolor="#333"
-                radius="15"
-                semi="false"
-                rounded="true"
-                clockwise="true"
-                responsive="false"
-                stroke="2"
-                animation="easeOutCubic">
-              </div>
-            </div>
+          <th class="logo_wrap">
+          		<h1 class="logo"><a href="#">TP LINK</a></h1>
+	          	<div class="progress-wrapper">
+	              <a ng-click="toggleTicking()" class="pbtn">
+	                <div ng-show="video_ticking"><span class="btn_play">Play</span></div>
+	                <div ng-hide="video_ticking"><span class="btn_pause">Pause</span></div>
+	              </a>
+	              <div
+	                round-progress
+	                max="video_every"
+	                current="video_timeuntil"
+	                color="#ff0"
+	                bgcolor="#333"
+	                radius="15"
+	                semi="false"
+	                rounded="true"
+	                clockwise="true"
+	                responsive="false"
+	                stroke="2"
+	                animation="easeOutCubic">
+	              </div>
+	            </div>
           </th>
-          <th>11ac<br />{{mbps.ac}} MBPS</th>
-          <th><strong>11ad</strong><br /><input type="num" name="admbps" ng-model="mbps.ad" size="4"> MBPS</th>
-          <th>Gigabit Ethernet<br />{{mbps.eth}} MBPS</th>
+          <th class="speedo_wrap ad_wrap">
+          	<h2>Wireless AD <span>60GHZ</span></h2>
+          	<div class="speedo_11ac">
+          		<img src="includes/images/speedo_ad.png" class="speedometer" />
+          		<h3><span>AVERAGE</span>{{mbps.ac}} MBPS</h3>
+          		<div class="router_icon"><img src="includes/images/icon_router.png" /></div>
+          	</div>
+          </th>
+          <th class="speedo_wrap ac_wrap">
+          	<h2>Wireless AC <span>5GHZ</span></h2>
+          	<div class="speedo_11ad">
+          		<img src="includes/images/speedo_ac.png" class="speedometer" />
+          		<h3><span>AVERAGE</span><input type="num" name="admbps" ng-model="mbps.ad" size="4"> MBPS</h3>
+          	</div>	
+          </th>
+          <th class="speedo_wrap giga_wrap">
+          	<h2>Wireless N <span>2.4GHZ</span></h2>
+          	<div class="speedo_giga">
+          		<img src="includes/images/speedo_n.png" class="speedometer" />
+          		<h3><span>AVERAGE</span>{{mbps.eth}} MBPS</h3>
+          	</div>	
+          </th>
         </tr>
       </thead>
       <tbody>
+      	<tr class="heading">
+      		<td class="head_label">FILE TYPE</td>
+      		<td class="head_label label_ad">TRANSFER TIME <span class="down_arrow"></span></td>
+      		<td class="head_label label_ac">TRANSFER TIME <span class="down_arrow"></span></td>
+      		<td class="head_label label_n">TRANSFER TIME <span class="down_arrow"></span></td>
+      	</tr>
         <tr ng-repeat="row in files">
           <td class="label">
             <span class="icn" ng-class="row.type"></span><strong class="title">{{row.name}}</strong><br />
             <strong>SIZE:</strong> {{row.mbstr}} &nbsp;|&nbsp; <strong>QTY:</strong> {{row.qty}}
           </td>
-          <td class="num ac">{{formatTime( row.timing.ac.time )}}</td>
-          <td class="num ad">{{formatTime( row.timing.ad.time )}}</td>
-          <td class="num eth">{{formatTime( row.timing.eth.time )}}</td>
+          <td class="num ac">{{formatTime( row.timing.ac.time )}}<span>seconds</span></td>
+          <td class="num ad">{{formatTime( row.timing.ad.time )}}<span>seconds</span></td>
+          <td class="num eth">{{formatTime( row.timing.eth.time )}}<span>seconds</span></td>
         </tr>
       </tbody>
     </table>

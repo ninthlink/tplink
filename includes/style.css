@@ -4,6 +4,7 @@ html, body, #vid {
 body {
   margin: 0;
   padding: 0;
+  font-family: 'Roboto', sans-serif;
 }
 table {
   border-collapse: collapse;
@@ -12,6 +13,7 @@ table {
 }
 th, td {
   height: 14%;
+  position: relative;
 }
 td.label {
   border-top: 1px solid #ccc;
@@ -24,15 +26,294 @@ td.num {
   width: 25%;
 }
 .progress-wrapper {
-  position: relative;
-}
-.pbtn {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -0.5em;
-  z-index: 6;
+  bottom: 30px;
+  width: 100%;
 }
+
 .round-progress-wrapper {
   z-index: 5;
+  display: block;
+  margin: 0px auto;
+}
+
+.pbtn {
+  display: block;
+  margin: 0px auto;
+  z-index: 6;
+  width: 18px;
+}
+
+/* Extra Styling */
+th.logo_wrap
+{
+	background: url('images/logo_bg.jpg') center center no-repeat #0078c7;
+	background-size: cover;
+}
+
+h1.logo
+{
+	
+}
+
+h1.logo a
+{
+	display: block;
+	height: 26px;
+	width: 204px;
+	background: url('images/logo.png') 0 0 no-repeat transparent;
+	text-indent: -9999px;
+	outline: none;
+	margin: 0px auto;
+}
+
+.btn_play
+{
+	background: url('images/button_play_arrow.png') 0 0 no-repeat transparent;
+	text-indent: -9999px;
+	outline: none;
+	display: block;
+	height: 18px;
+	width: 12px;
+	position: absolute;
+	left: 49%;
+	top: 7px;
+	z-index: 10;
+}
+
+.btn_pause
+{
+	background: url('images/button_pause.png') 0 0 no-repeat transparent;
+	text-indent: -9999px;
+	outline: none;
+	display: block;
+	height: 18px;
+	width: 12px;
+	position: absolute;
+	left: 48.5%;
+	top: 8px;
+	z-index: 10;
+}
+
+.speedo_wrap
+{
+	background: url('images/bg_ac.jpg') 0 0 no-repeat transparent;
+	background-size: cover;
+	padding: 20px;
+	position: relative;
+}
+
+.speedo_wrap.ad_wrap
+{
+	background: url('images/bg_ad.jpg') 0 0 no-repeat transparent;
+	background-size: cover;
+}
+
+.speedo_wrap h2
+{
+	font-size: 30px;
+	line-height: 34px;
+	color: #000;
+	font-weight: 700;
+	text-align: center;
+	margin: 10px 0px 25px;
+}
+
+.speedo_wrap h2 span
+{
+	font-weight: 400;	
+}
+
+
+.speedo_wrap h3
+{
+	font-size: 28px;
+	line-height: 30px;
+	color: #000;
+	font-weight: 700;
+	text-align: center;
+	margin: -20px 0px 10px;
+	text-transform: uppercase;
+}
+
+.speedo_wrap h3 span
+{
+	font-size: 18px;
+	line-height: 30px;
+	font-weight: 300;
+	display: block;
+}
+
+.router_icon
+{
+	position: absolute;
+	width: 76px;
+	height: 77px;
+	right: 0px;
+	bottom: 10px;
+	display: none !important;
+}
+
+.speedo_wrap input
+{
+	font-size: 28px;
+	line-height: 30px;
+	color: #000;
+	font-weight: 700;
+	text-align: center;
+	border: 0px solid #FF;
+	background: transparent;
+	border: 0px solid rgb(255, 255, 255);
+	width: auto;
+	padding: 0px;
+	margin: 0px;
+}
+
+.heading .head_label
+{
+	padding: 20px; 
+	font-size: 18px;
+	line-height: 18px;
+	color: #FFF;
+	font-weight: 500;
+	text-transform: uppercase; 
+	background: #17467a;
+	position: relative;
+}
+
+.heading .head_label.label_ad
+{
+	text-align: center;
+	background: #2976cb;
+}
+
+.heading .head_label span.down_arrow
+{
+	background: url('images/arrow_blue.png') 0 0 no-repeat transparent;
+	display: block;
+	height: 10px;
+	width: 19px;
+	position: absolute;
+	left: 49%;
+	bottom: -9px;
+	z-index: 9;
+}
+
+
+.heading .head_label.label_ad span.down_arrow
+{
+	background: url('images/arrow_blue.png') 0 0 no-repeat transparent;
+}
+
+.heading .head_label.label_ac
+{
+	text-align: center;
+	background: #761e66;
+}
+
+
+.heading .head_label.label_ac span.down_arrow
+{
+	background: url('images/arrow_red.png') 0 0 no-repeat transparent;
+}
+
+.heading .head_label.label_n
+{
+	text-align: center;
+	background: #e46f00;
+}
+
+.heading .head_label.label_n span.down_arrow
+{
+	background: url('images/arrow_orange.png') 0 0 no-repeat transparent;
+}
+
+td.label
+{
+	padding: 30px 20px; 
+	font-size: 17px;
+	line-height: 24px;
+	color: #000;
+	font-weight: 400;
+}
+
+td.label .title
+{
+	font-size: 24px;
+	line-height: 28px;
+	color: #000;
+	font-weight: 700;
+}
+
+td.label .icn
+{
+	display: block;
+	float: left;
+	height: 50px;
+	width: 34px;
+	background: transparent url("images/icon_pdf.png") no-repeat scroll center 10px;
+	margin-right: 20px;
+}
+
+td.label .icn.pdf
+{
+	background: transparent url("images/icon_pdf.png") no-repeat scroll center 10px;
+}
+
+td.label .icn.ebook
+{
+	background: transparent url("images/icon_ebook.png") no-repeat scroll center 10px;
+}
+
+
+td.label .icn.photo
+{
+	background: transparent url("images/icon_photo.png") no-repeat scroll center 10px;
+}
+
+td.label .icn.song
+{
+	background: transparent url("images/icon_songs.png") no-repeat scroll center 10px;
+}
+
+td.label .icn.hdmovie
+{
+	background: transparent url("images/icon_hd.png") no-repeat scroll center 10px;
+}
+
+td.label .icn.fourk
+{
+	background: transparent url("images/icon_4k.png") no-repeat scroll center 10px;
+}
+
+td.num
+{
+	padding: 30px 15px; 
+	font-size: 24px;
+	line-height: 28px;
+	color: #2976cb;
+	font-weight: 500;
+}
+
+td.num.ac
+{
+	background: url('images/ad_tdbg.jpg') 0 0 no-repeat #FFF;
+	position: inherit;
+}
+
+td.num span
+{
+	font-size: 18px;
+	line-height: 22px;
+	display: block;
+}
+
+td.num.ad
+{
+	color: #761e66;
+}
+
+td.num.eth
+{
+	color: #e46f00;
 }

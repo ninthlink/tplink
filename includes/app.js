@@ -13,7 +13,7 @@
   function tplinkController( $scope, $filter, $timeout ) {
     
     // __ seconds countdown til video auto plays
-    $scope.video_every = 6000;
+    $scope.video_every = 60;
     $scope.video_autocountdown = true;
     
     // round the time calculations to __ decimal places

@@ -7,10 +7,10 @@
   tpApp.controller( 'tplinkController', tplinkController );
   
   // inject controller dependencies
-  tplinkController.$inject = [ '$scope', '$filter', '$timeout' ];
+  tplinkController.$inject = [ '$scope', '$filter', '$timeout', '$http' ];
   
   // actual tplinkController function starts here
-  function tplinkController( $scope, $filter, $timeout ) {
+  function tplinkController( $scope, $filter, $timeout, $http ) {
     
     // __ seconds countdown til video auto plays
     $scope.video_every = 60;

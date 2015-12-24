@@ -25,6 +25,11 @@
       ad: 2800,
       eth: 1000
     };
+    $scope.needle_deg = {
+      ac: 0,
+      ad: 0,
+      eth: 0
+    };
     
     // array of different types of file items to compare
     $scope.files = [
@@ -106,23 +111,26 @@
     $scope.resetFileTimes();
     
     // function to iterate each $scope.files & calc times forEach mbps
-    $scope.calcFileTimeLoop = function() {
+    $scope.calcLoop = function() {
       // loop through for each
-      angular.forEach( $scope.files, function( value, key ) {
-        var thisrow = value;
-        angular.forEach( $scope.mbps, function( value, key ) {
+      angular.forEach( $scope.mbps, function( value, key ) {
+        var tput = value;
+        var tputkey = key;
+        angular.forEach( $scope.files, function( value, key ) {
           // calcs
-          thisrow.timing[key].time = thisrow.fsize / value;
+          value.timing[tputkey].time = value.fsize / tput;
         });
+        // and rotate needle
+        $scope.needle_deg[tputkey] = Math.ceil( ( tput / 2800 ) * 180 );
       });
     };
     // initial calc
-    $scope.calcFileTimeLoop();
+    $scope.calcLoop();
     
     // watch for changes in the 11ad mbps and re compute accordingly
     $scope.$watch('mbps.ad', function( newvalue, oldvalue, label ) {
       if ( newvalue != oldvalue ) {
-        $scope.calcFileTimeLoop();
+        $scope.calcLoop();
       }
     });
     

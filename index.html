@@ -39,24 +39,72 @@
           </th>
           <th class="speedo_wrap ad_wrap">
           	<h2>Wireless AD <span>60GHZ</span></h2>
-          	<div class="speedo_11ac">
-          		<img src="includes/images/speedo_ad.png" class="speedometer" />
-          		<h3><span>AVERAGE</span>{{mbps.ac}} MBPS</h3>
+          	<div class="speedometer">
+          		<h3><span>AVERAGE</span><input type="num" name="admbps" ng-model="mbps.ad" size="4"> MBPS</h3>
           		<div class="router_icon"><img src="includes/images/icon_router.png" /></div>
+              <div class="rprog">
+                <div
+                  round-progress
+                  max="2800"
+                  current="mbps.ad"
+                  color="#2976cb"
+                  bgcolor="#fff"
+                  radius="124"
+                  semi="true"
+                  rounded="false"
+                  clockwise="true"
+                  responsive="false"
+                  stroke="18"
+                  animation="linearEase">
+                </div>
+              </div>
+              <div class="needle" style="transform: rotate({{needle_deg.ad}}deg);"></div>
           	</div>
           </th>
           <th class="speedo_wrap ac_wrap">
           	<h2>Wireless AC <span>5GHZ</span></h2>
-          	<div class="speedo_11ad">
-          		<img src="includes/images/speedo_ac.png" class="speedometer" />
-          		<h3><span>AVERAGE</span><input type="num" name="admbps" ng-model="mbps.ad" size="4"> MBPS</h3>
+          	<div class="speedometer">
+          		<h3><span>AVERAGE</span>{{mbps.ac}} MBPS</h3>
+              <div class="rprog">
+                <div
+                  round-progress
+                  max="2800"
+                  current="mbps.ac"
+                  color="#761e66"
+                  bgcolor="#fff"
+                  radius="124"
+                  semi="true"
+                  rounded="false"
+                  clockwise="true"
+                  responsive="false"
+                  stroke="18"
+                  animation="linearEase">
+                </div>
+              </div>
+              <div class="needle" style="transform: rotate({{needle_deg.ac}}deg);"></div>
           	</div>	
           </th>
           <th class="speedo_wrap giga_wrap">
           	<h2>Wireless N <span>2.4GHZ</span></h2>
-          	<div class="speedo_giga">
-          		<img src="includes/images/speedo_n.png" class="speedometer" />
+          	<div class="speedometer">
           		<h3><span>AVERAGE</span>{{mbps.eth}} MBPS</h3>
+              <div class="rprog">
+                <div
+                  round-progress
+                  max="2800"
+                  current="mbps.eth"
+                  color="#e46f00"
+                  bgcolor="#fff"
+                  radius="124"
+                  semi="true"
+                  rounded="false"
+                  clockwise="true"
+                  responsive="false"
+                  stroke="18"
+                  animation="linearEase">
+                </div>
+              </div>
+              <div class="needle" style="transform: rotate({{needle_deg.eth}}deg);"></div>
           	</div>	
           </th>
         </tr>
@@ -73,8 +121,8 @@
             <span class="icn" ng-class="row.type"></span><strong class="title">{{row.name}}</strong><br />
             <strong>SIZE:</strong> {{row.mbstr}} &nbsp;|&nbsp; <strong>QTY:</strong> {{row.qty}}
           </td>
-          <td class="num ac">{{formatTime( row.timing.ac.time )}}<span>seconds</span></td>
-          <td class="num ad">{{formatTime( row.timing.ad.time )}}<span>seconds</span></td>
+          <td class="num ac">{{formatTime( row.timing.ad.time )}}<span>seconds</span></td>
+          <td class="num ad">{{formatTime( row.timing.ac.time )}}<span>seconds</span></td>
           <td class="num eth">{{formatTime( row.timing.eth.time )}}<span>seconds</span></td>
         </tr>
       </tbody>

@@ -13,18 +13,15 @@
   function tplinkController( $scope, $filter, $timeout, $http ) {
     
     // __ seconds countdown til video auto plays
-    $scope.video_every = 60;
-    $scope.video_autocountdown = true;
+    $scope.video_every = TPLINK_CONFIG.video_countdown_seconds;
+    $scope.video_autocountdown = TPLINK_CONFIG.video_countdown_auto;
     
     // round the time calculations to __ decimal places
-    $scope.time_decimals = 2;
+    $scope.time_decimals = TPLINK_CONFIG.time_decimals;
     
     // "estimated" mbps
-    $scope.mbps = {
-      ac: 1300,
-      ad: 2800,
-      eth: 1000
-    };
+    $scope.mbps = TPLINK_CONFIG.initial_mbps;
+    $scope.mbps_max_scale = TPLINK_CONFIG.mbps_max_scale;
     $scope.needle_deg = {
       ac: 0,
       ad: 0,
@@ -32,44 +29,7 @@
     };
     
     // array of different types of file items to compare
-    $scope.files = [
-      {
-        type: 'pdf',
-        name: 'PDF',
-        qty: 1000,
-        mb: 0.6
-      },
-      {
-        type: 'ebook',
-        name: 'Ebooks',
-        qty: 1000,
-        mb: 1
-      },
-      {
-        type: 'photo',
-        name: 'Photos',
-        qty: 1000,
-        mb: 1.5
-      },
-      {
-        type: 'song',
-        name: 'Songs',
-        qty: 1000,
-        mb: 3.5
-      },
-      {
-        type: 'hdmovie',
-        name: 'HD Movie',
-        qty: 1,
-        mb: 8000
-      },
-      {
-        type: 'fourk',
-        name: '4K Movie',
-        qty: 1,
-        mb: 100000
-      }
-    ];
+    $scope.files = TPLINK_CONFIG.files_array;
     
     $scope.resetFileTimes = function() {
       // loop through for each
@@ -121,7 +81,7 @@
           value.timing[tputkey].time = value.fsize / tput;
         });
         // and rotate needle
-        $scope.needle_deg[tputkey] = Math.ceil( ( tput / 2800 ) * 180 );
+        $scope.needle_deg[tputkey] = Math.ceil( ( tput / $scope.mbps_max_scale ) * 180 );
       });
     };
     // initial calc

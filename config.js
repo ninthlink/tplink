@@ -60,13 +60,16 @@ var TPLINK_CONFIG = {
   ],
   
   // sampling rate of how many ms (1000 x # of seconds) to read or generate #s
-  sample_rate: 5000,
+  sample_rate: 30000,
+  
+  // how many ms (1000 x # of seconds) to allow trying to load file before fail
+  timeout_ms: 1000,
   
   // whether to run in LIVE mode, reading in the file(s) below, or Simulate
   live_mode: true,
   
   // iperf output directory
-  iperf_dir: '/iperf',
+  iperf_dir: '/tplink/iperf',
   
   // iperf output file(s) to try and read, inside the above iperf_dir
   iperf_files: [

@@ -3,10 +3,10 @@ angular.module('tpApp')
   .controller( 'tplinkController', tplinkController );
 
 // inject controller dependencies
-tplinkController.$inject = [ '$scope', '$filter', '$http', '$q', '$timeout' ];
+tplinkController.$inject = [ '$scope', '$filter', 'tputFactory', '$timeout' ];
 
 // actual tplinkController function starts here
-function tplinkController( $scope, $filter, $http, $q, $timeout ) {
+function tplinkController( $scope, $filter, tputFactory, $timeout ) {
   
   // __ seconds countdown til video auto plays
   $scope.video_every = TPLINK_CONFIG.video_countdown_seconds;
@@ -103,10 +103,31 @@ function tplinkController( $scope, $filter, $http, $q, $timeout ) {
   });
   
   // determine whether we are in "live" file reading mode or demo generating
+  $scope.tputTimer;
   if ( $scope.live_mode ) {
     //console.log('LIVE mode : read 11ad files every '+ $scope.sample_rate );
-    console.log($scope.iperf_files);
-    // and then? load files..  
+    // and then? load files.. 
+    $scope.reloadTputNow = function() {
+      //console.log('reloadTputNow');
+      tputFactory.loadTputs().then( function( results ) {
+        //console.log('tputFactory returned!');
+        //console.log(results);
+        if ( results.hasOwnProperty('total') ) {
+          $scope.mbps.ad = results.total;
+        }
+        //$scope.reprocessResults( results );
+      });
+      // and no matter how long that takes, trigger this again
+      $scope.reloadTput();
+    };
+    $scope.reloadTput = function() {
+      // use $timeout to reload our 11ac MU/SU data every interval
+      $timeout.cancel( $scope.tputTimer );
+      $scope.tputTimer = $timeout( function() {
+        $scope.reloadTputNow();
+      }, $scope.sample_rate );
+    };
+    $scope.reloadTputNow();
   } else {
     //console.log('NOT live mode : sim 11ad every '+ $scope.sample_rate );
   }
@@ -185,6 +206,7 @@ function tplinkController( $scope, $filter, $http, $q, $timeout ) {
   
   // set $on( $destroy ) to be nice and wipe any $timeout(s)
   $scope.$on( '$destroy', function( event ) {
+    $timeout.cancel( $scope.tputTimer );
     $timeout.cancel( $scope.vtimer );
   });
 }

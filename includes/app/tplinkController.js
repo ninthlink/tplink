@@ -103,7 +103,6 @@ function tplinkController( $scope, $filter, tputFactory, $timeout ) {
   });
   
   // determine whether we are in "live" file reading mode or demo generating
-  $scope.tputTimer;
   if ( $scope.live_mode ) {
     //console.log('LIVE mode : read 11ad files every '+ $scope.sample_rate );
     // and then? load files.. 
@@ -120,17 +119,25 @@ function tplinkController( $scope, $filter, tputFactory, $timeout ) {
       // and no matter how long that takes, trigger this again
       $scope.reloadTput();
     };
-    $scope.reloadTput = function() {
-      // use $timeout to reload our 11ac MU/SU data every interval
-      $timeout.cancel( $scope.tputTimer );
-      $scope.tputTimer = $timeout( function() {
-        $scope.reloadTputNow();
-      }, $scope.sample_rate );
-    };
-    $scope.reloadTputNow();
   } else {
     //console.log('NOT live mode : sim 11ad every '+ $scope.sample_rate );
+    $scope.ad_range = TPLINK_CONFIG.mbps_max_demo_range;
+    $scope.reloadTputNow = function() {
+      var thespread = Math.floor( Math.random() * $scope.ad_range );
+      $scope.mbps.ad = $scope.mbps_max_scale - $scope.ad_range + thespread;
+      // and again later
+      $scope.reloadTput();
+    };
   }
+  // and in either case..
+  $scope.reloadTput = function() {
+    // use $timeout to reload our 11ac MU/SU data every interval
+    $timeout.cancel( $scope.tputTimer );
+    $scope.tputTimer = $timeout( function() {
+      $scope.reloadTputNow();
+    }, $scope.sample_rate );
+  };
+  $scope.reloadTputNow();
   
   // format time __ seconds or __ minutes __ seconds : maybe make directive?
   $scope.formatTime = function ( t ) {

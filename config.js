@@ -10,13 +10,13 @@ var TPLINK_CONFIG = {
   time_decimals: 2,
   
   // sampling rate of how many ms (1000 x # of seconds) to read or generate #s
-  sample_rate: 30000,
+  sample_rate: 3000,
   
   // how many ms (1000 x # of seconds) to allow trying to load file before fail
   timeout_ms: 1000,
   
   // whether to run in LIVE mode, reading in the file(s) below, or Simulate
-  live_mode: true,
+  live_mode: false,
   
   // iperf output directory
   iperf_dir: '/tplink/iperf',
@@ -76,6 +76,8 @@ var TPLINK_CONFIG = {
   ],
   
   // arbitrary "max" MBPS to calculate the scaling of progress bars & needles
-  mbps_max_scale: 2800
-
+  mbps_max_scale: 2800,
+  
+  // arbitrary range that 11ad could vary by, if in demo mode
+  mbps_max_demo_range: 800
 };

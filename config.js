@@ -4,20 +4,36 @@ var TPLINK_CONFIG = {
   video_countdown_seconds: 60,
   
   // whether video should auto countdown or not
-  video_countdown_auto: true,
+  video_countdown_auto: false,
 
   // round the time calculations to __ decimal places
   time_decimals: 2,
-
+  
+  // sampling rate of how many ms (1000 x # of seconds) to read or generate #s
+  sample_rate: 30000,
+  
+  // how many ms (1000 x # of seconds) to allow trying to load file before fail
+  timeout_ms: 1000,
+  
+  // whether to run in LIVE mode, reading in the file(s) below, or Simulate
+  live_mode: true,
+  
+  // iperf output directory
+  iperf_dir: '/tplink/iperf',
+  
+  // iperf output file(s) to try and read, inside the above iperf_dir
+  iperf_files: [
+    'iperf1.txt',
+    'iperf2.txt',
+    'iperf3.txt'
+  ],
+  
   // initial tput mbps estimated numbers
   initial_mbps: {
     ac: 1300,
     ad: 2800,
     eth: 1000
   },
-
-  // arbitrary "max" MBPS to calculate the scaling of progress bars & needles
-  mbps_max_scale: 2800,
 
   // array of different types of file items to compare : repeat object for each
   files_array: [
@@ -59,21 +75,7 @@ var TPLINK_CONFIG = {
     }
   ],
   
-  // sampling rate of how many ms (1000 x # of seconds) to read or generate #s
-  sample_rate: 30000,
-  
-  // how many ms (1000 x # of seconds) to allow trying to load file before fail
-  timeout_ms: 1000,
-  
-  // whether to run in LIVE mode, reading in the file(s) below, or Simulate
-  live_mode: true,
-  
-  // iperf output directory
-  iperf_dir: '/tplink/iperf',
-  
-  // iperf output file(s) to try and read, inside the above iperf_dir
-  iperf_files: [
-    'iperf1.txt',
-    'iperf2.txt'
-  ]
+  // arbitrary "max" MBPS to calculate the scaling of progress bars & needles
+  mbps_max_scale: 2800
+
 };

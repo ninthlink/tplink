@@ -1,8 +1,6 @@
-// set up our angular app referenced in <html ng-app="...", with directives
-var tpApp = angular.module('tpApp', ['angular-svg-round-progress']);
-
-// set up our controller referenced in <body ng-controller="...">
-tpApp.controller( 'tplinkController', tplinkController );
+// attach our new controller to our app, referenced in <body ng-controller="...
+angular.module('tpApp')
+  .controller( 'tplinkController', tplinkController );
 
 // inject controller dependencies
 tplinkController.$inject = [ '$scope', '$filter', '$http', '$q', '$timeout' ];

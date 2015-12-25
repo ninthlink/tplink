@@ -57,5 +57,20 @@ var TPLINK_CONFIG = {
       qty: 1,
       mb: 100000
     }
+  ],
+  
+  // sampling rate of how many ms (1000 x # of seconds) to read or generate #s
+  sample_rate: 5000,
+  
+  // whether to run in LIVE mode, reading in the file(s) below, or Simulate
+  live_mode: true,
+  
+  // iperf output directory
+  iperf_dir: '/iperf',
+  
+  // iperf output file(s) to try and read, inside the above iperf_dir
+  iperf_files: [
+    'iperf1.txt',
+    'iperf2.txt'
   ]
 };

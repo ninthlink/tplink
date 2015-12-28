@@ -53,6 +53,8 @@ Note again that you need to copy the config-default.js and rename it to config.j
 
 + Fixed a bug where if the time for a calculated transfer was > 60 seconds, sometimes it might show more than the `time_decimals` number of decimals rounding. Actually in this case, just round number of minute(s) and seconds to integers.
 + Fixed display bug to add another 10px spacing between Pause / X / Play video buttons
++ Instead of loading font from fonts.googleapis.com, just load local version
++ Fix spacing on the 11ad Mbps number
 + Cleaned up version numbers in js & css files to match
 
 ### v1.0.1

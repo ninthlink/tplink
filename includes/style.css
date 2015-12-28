@@ -210,10 +210,10 @@ th.speedo_wrap {
 	font-size: 28px;
 	font-weight: 700;
 	line-height: 30px;
-	margin: 0;
+	margin: 0 0 0 -1em;
 	padding: 0;
-	text-align: center;
-	width: auto;
+	text-align: right;
+	width: 80px;
 }
 .speedometer {
   background: url(images/speedo_bg.png) no-repeat 50% 0;

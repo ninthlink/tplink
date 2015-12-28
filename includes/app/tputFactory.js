@@ -1,9 +1,16 @@
 /**
- * tputFactory
+ * tputFactory.js
  *
- * provides methods for loading tput datas
- * from given iperf_files(s)
+ * TP-LINK 11ad Comparison "tpApp"
+ * Designed and Developed by Ninthlink, Inc. http://www.ninthlink.com
+ *
+ * Provides methods for loading tput datas from given iperf_files(s)
+ *
+ * https://github.com/ninthlink/tplink
+ *
+ * v0.1 2015-12-28
  */
+ 
 angular
   .module('tpApp')
   .factory('tputFactory', tputFactory);

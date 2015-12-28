@@ -1,2 +1,15 @@
-// just set up our angular app referenced in <html ng-app="..."
+/**
+ * app.js
+ *
+ * TP-LINK 11ad Comparison "tpApp"
+ * Designed and Developed by Ninthlink, Inc. http://www.ninthlink.com
+ *
+ * Angular app to simulate or load real iPerf data comparing 11ad, 11ac & more
+ *
+ * https://github.com/ninthlink/tplink
+ *
+ * v0.1 2015-12-28
+ */
+
+// set up the Angular app referenced in <html ng-app="..." with dependency
 angular.module('tpApp', ['angular-svg-round-progress']);

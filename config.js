@@ -1,4 +1,16 @@
-// variables and values for the TPLINK tpApp app.js to use
+/**
+ * config.js
+ *
+ * TP-LINK 11ad Comparison "tpApp"
+ * Designed and Developed by Ninthlink, Inc. http://www.ninthlink.com
+ *
+ * Variables & values for the TP-LINK tpApp. See the README for more details.
+ *
+ * https://github.com/ninthlink/tplink
+ *
+ * v0.1 2015-12-28
+ */
+
 var TPLINK_CONFIG = {
   // video name inside /video directory, or false if no video
   video: 'video/demo.mp4',

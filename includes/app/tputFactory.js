@@ -7,8 +7,6 @@
  * Provides methods for loading tput datas from given iperf_files(s)
  *
  * https://github.com/ninthlink/tplink
- *
- * v0.1 2015-12-28
  */
  
 angular

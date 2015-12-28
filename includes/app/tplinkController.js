@@ -7,8 +7,6 @@
  * Defines general tplinkController to populate & power the GUI
  *
  * https://github.com/ninthlink/tplink
- *
- * v0.1 2015-12-28
  */
 
 // attach our new controller to our app, referenced in <body ng-controller="...

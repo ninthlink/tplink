@@ -46,3 +46,21 @@ Note again that you need to copy the config-default.js and rename it to config.j
 | `files_array` | Array of different types of file items to compare : repeat object for each. | `[{ type: 'pdf', name: 'PDF', qty: 1000, mb: 0.6 },...]` | see default value |
 | `mbps_max_scale` | Semi-arbitrary "max" MBPS to calculate the scaling of progress bars & needles | 2800 | Positive integer |
 | `mbps_max_demo_range` | Semi-arbitrary range that 11ad could vary by, if in demo mode ( `live_mode` = `false` | 800 | Positive integer |
+
+## changelog
+
+### v1.0.2
+
++ Fixed a bug where if the time for a calculated transfer was > 60 seconds, sometimes it might show more than the `time_decimals` number of decimals rounding. Actually in this case, just round number of minute(s) and seconds to integers.
++ Fixed display bug to add another 10px spacing between Pause / X / Play video buttons
++ Cleaned up version numbers in js & css files to match
+
+### v1.0.1
+
++ Changed default Mbps values for 5GHz & 2.4GHz throughputs
++ Changed labels to not all uppercase "5GHz" and "Mbps"
+
+### v1.0
+
++ Initial Release
+

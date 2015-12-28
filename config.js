@@ -13,7 +13,7 @@ var TPLINK_CONFIG = {
   time_decimals: 2,
   
   // sampling rate of how many ms (1000 x # of seconds) to read or generate #s
-  sample_rate: 3000,
+  sample_rate: 5000,
   
   // how many ms (1000 x # of seconds) to allow trying to load file before fail
   timeout_ms: 1000,

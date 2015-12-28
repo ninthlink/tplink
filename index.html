@@ -8,8 +8,8 @@
     <link href="includes/style.css" rel="stylesheet" type="text/css">
   </head>
   <body ng-controller="tplinkController">
-    <video id="tpv" width="100%" height="100%" controls ng-if="showvideo">
-      <source src="video/demo.mp4" type="video/mp4">
+    <video ng-if="showvideo" id="tpv" width="100%" height="100%" controls>
+      <source ng-attr-src="{{video_src}}" type="video/mp4">
     Your browser does not support the video tag.
     </video>
   
@@ -18,14 +18,10 @@
         <tr>
           <th class="logo_wrap">
           		<h1 class="logo"><a href="#">TP LINK</a></h1>
-	          	<div class="progress-wrapper" ng-class="showvideomenu ? 'pmenu' : ''">
+	          	<div ng-if="video_src" class="progress-wrapper" ng-class="showvideomenu ? 'pmenu' : ''">
 	              <a ng-click="btnclick('play')" ng-show="!video_autocountdown || (video_autocountdown && (video_ticking || showvideomenu) )" class="pbtn play">Play</a>
 	              <a ng-click="btnclick('x')" ng-show="showvideomenu" class="pbtn x">X</a>
 	              <a ng-click="btnclick('pause')" ng-show="video_autocountdown && !video_ticking" class="pbtn pause">Pause</a>
-                <!--
-	                <div ng-show="video_ticking"><span class="btn_play">Play</span></div>
-	                <div ng-hide="video_ticking"><span class="btn_pause">Pause</span></div>
-	              -->
 	              <div
 	                round-progress
 	                max="video_every"

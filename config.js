@@ -1,5 +1,8 @@
 // variables and values for the TPLINK tpApp app.js to use
 var TPLINK_CONFIG = {
+  // video name inside /video directory, or false if no video
+  video: 'video/demo.mp4',
+  
   // __ seconds countdown until video auto plays
   video_countdown_seconds: 60,
   

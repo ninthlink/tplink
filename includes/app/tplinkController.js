@@ -9,8 +9,12 @@ tplinkController.$inject = [ '$scope', '$filter', 'tputFactory', '$timeout' ];
 function tplinkController( $scope, $filter, tputFactory, $timeout ) {
   
   // __ seconds countdown til video auto plays
-  $scope.video_every = TPLINK_CONFIG.video_countdown_seconds;
-  $scope.video_autocountdown = TPLINK_CONFIG.video_countdown_auto;
+  $scope.video_src = TPLINK_CONFIG.video;
+  if ( $scope.video_src ) {
+    // in case it was set to false, just skip all video parts. but otherwise..
+    $scope.video_every = TPLINK_CONFIG.video_countdown_seconds;
+    $scope.video_autocountdown = TPLINK_CONFIG.video_countdown_auto;
+  }
   
   // round the time calculations to __ decimal places
   $scope.time_decimals = TPLINK_CONFIG.time_decimals;
@@ -154,103 +158,104 @@ function tplinkController( $scope, $filter, tputFactory, $timeout ) {
     return oot;
   };
   
-  $scope.showvideo = false;
-  $scope.vtimer;
+  if ( $scope.video_src ) {
   
-  $scope.playVideo = function() {
-    $scope.showvideo = true;
-    $timeout ( function() {
-      var tpvid = document.getElementById('tpv');
-      // play it now
-      tpvid.play();
-      // and vanilla js attach to "ended" to fire when html5 video ends
-      tpvid.addEventListener('ended',$scope.vidend,false);
-    }, 100 );
-  };
-  
-  $scope.vidTimerTick = function() {
-    $scope.video_ticking = true;
-    $timeout.cancel( $scope.vtimer );
-    // tick every second
-    $scope.vtimer = $timeout( function() {
-      $scope.video_timeuntil++;
-      if ( $scope.video_timeuntil <= $scope.video_every ) {
-        $scope.vidTimerTick();
-      } else {
-        //console.log($scope.video_every +' SECONDS : PLAY VIDEO!');
-        $scope.playVideo();
-      }
-    }, 1000 );
-  };
-  
-  $scope.toggleTicking = function() {
-    $timeout.cancel( $scope.vtimer );
-    if ( $scope.video_ticking ) {
-      // then turn off
-      $scope.video_ticking = false;
-    } else {
-      $scope.vidTimerTick();
-    }
-  };
-  $scope.maybeStartTicking = function() {
-    if ( $scope.video_autocountdown ) {
-      // initial start the countdown
-      $scope.toggleTicking();
-    }
-  };
-  // set up timing for video auto play
-  $scope.resetVideo = function( delay ) {
-    $scope.video_timeuntil = -1;
-    $scope.video_ticking = false;
-    $scope.showvideomenu = false;
-    if ( delay ) {
-      // in this case, video has finished playing, but give it a sec first
-      $timeout( function() {
-        $scope.showvideo = false;
-        $scope.maybeStartTicking();
-      }, 2000 );
-    } else {
-      $scope.showvideo = false;
-      $scope.maybeStartTicking();
-    }
-  };
-  $scope.resetVideo();
-  
-  // different button click handlers
-  $scope.btnclick = function ( btn ) {
-    switch ( btn ) {
-      case 'play':
-        if ( $scope.video_autocountdown ) {
-          if ( $scope.showvideomenu ) {
-            // immediate play
-            $scope.playVideo();
-          } else {
-            $scope.toggleTicking();
-            $scope.showvideomenu = true;
-          }
+    $scope.showvideo = false;
+    $scope.vtimer;
+    
+    $scope.playVideo = function() {
+      $scope.showvideo = true;
+      $timeout ( function() {
+        var tpvid = document.getElementById('tpv');
+        // play it now
+        tpvid.play();
+        // and vanilla js attach to "ended" to fire when html5 video ends
+        tpvid.addEventListener('ended',$scope.vidend,false);
+      }, 100 );
+    };
+    
+    $scope.vidTimerTick = function() {
+      $scope.video_ticking = true;
+      $timeout.cancel( $scope.vtimer );
+      // tick every second
+      $scope.vtimer = $timeout( function() {
+        $scope.video_timeuntil++;
+        if ( $scope.video_timeuntil <= $scope.video_every ) {
+          $scope.vidTimerTick();
         } else {
-          // we arent doing auto countdown at all, so just play..
+          //console.log($scope.video_every +' SECONDS : PLAY VIDEO!');
           $scope.playVideo();
         }
-        break;
-      case 'x':
-        $scope.showvideomenu = false;
-        if ( $scope.video_autocountdown ) {
-          $scope.toggleTicking();
-        }
-        break;
-      case 'pause':
-        $scope.showvideomenu = !$scope.showvideomenu;
-        break;
-    }
-  };
-  
-  
-  // handler to trigger when the html5 video has played all the way through
-  $scope.vidend = function(e) {
-    $scope.resetVideo( true );
-  };
-  
+      }, 1000 );
+    };
+    
+    $scope.toggleTicking = function() {
+      $timeout.cancel( $scope.vtimer );
+      if ( $scope.video_ticking ) {
+        // then turn off
+        $scope.video_ticking = false;
+      } else {
+        $scope.vidTimerTick();
+      }
+    };
+    $scope.maybeStartTicking = function() {
+      if ( $scope.video_autocountdown ) {
+        // initial start the countdown
+        $scope.toggleTicking();
+      }
+    };
+    // set up timing for video auto play
+    $scope.resetVideo = function( delay ) {
+      $scope.video_timeuntil = -1;
+      $scope.video_ticking = false;
+      $scope.showvideomenu = false;
+      if ( delay ) {
+        // in this case, video has finished playing, but give it a sec first
+        $timeout( function() {
+          $scope.showvideo = false;
+          $scope.maybeStartTicking();
+        }, 2000 );
+      } else {
+        $scope.showvideo = false;
+        $scope.maybeStartTicking();
+      }
+    };
+    $scope.resetVideo();
+    
+    // different button click handlers
+    $scope.btnclick = function ( btn ) {
+      switch ( btn ) {
+        case 'play':
+          if ( $scope.video_autocountdown ) {
+            if ( $scope.showvideomenu ) {
+              // immediate play
+              $scope.playVideo();
+            } else {
+              $scope.toggleTicking();
+              $scope.showvideomenu = true;
+            }
+          } else {
+            // we arent doing auto countdown at all, so just play..
+            $scope.playVideo();
+          }
+          break;
+        case 'x':
+          $scope.showvideomenu = false;
+          if ( $scope.video_autocountdown ) {
+            $scope.toggleTicking();
+          }
+          break;
+        case 'pause':
+          $scope.showvideomenu = !$scope.showvideomenu;
+          break;
+      }
+    };
+    
+    // handler to trigger when the html5 video has played all the way through
+    $scope.vidend = function(e) {
+      $scope.resetVideo( true );
+    };
+  }
   // set $on( $destroy ) to be nice and wipe any $timeout(s)
   $scope.$on( '$destroy', function( event ) {
     $timeout.cancel( $scope.tputTimer );

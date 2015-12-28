@@ -18,10 +18,10 @@
         <tr>
           <th class="logo_wrap">
           		<h1 class="logo"><a href="#">TP LINK</a></h1>
-	          	<div class="progress-wrapper">
-	              <a ng-click="toggleTicking()" class="pbtn play">Play</a>
-	              <a ng-click="toggleTicking()" class="pbtn x">X</a>
-	              <a ng-click="toggleTicking()" class="pbtn pause">Pause</a>
+	          	<div class="progress-wrapper" ng-class="showvideomenu ? 'pmenu' : ''">
+	              <a ng-click="btnclick('play')" ng-show="!video_autocountdown || (video_autocountdown && (video_ticking || showvideomenu) )" class="pbtn play">Play</a>
+	              <a ng-click="btnclick('x')" ng-show="showvideomenu" class="pbtn x">X</a>
+	              <a ng-click="btnclick('pause')" ng-show="video_autocountdown && !video_ticking" class="pbtn pause">Pause</a>
                 <!--
 	                <div ng-show="video_ticking"><span class="btn_play">Play</span></div>
 	                <div ng-hide="video_ticking"><span class="btn_pause">Pause</span></div>
@@ -38,7 +38,8 @@
 	                clockwise="true"
 	                responsive="false"
 	                stroke="4"
-	                animation="easeOutCubic">
+                  duration="1000"
+	                animation="linearEase">
 	              </div>
 	            </div>
           </th>

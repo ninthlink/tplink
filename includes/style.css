@@ -29,18 +29,31 @@ td.num {
 }
 .progress-wrapper {
   position: absolute;
+  left: 0;
   bottom: 30px;
   width: 100%;
 }
 .round-progress-wrapper {
   display: block;
   margin: 0 auto;
+  position: relative;
   z-index: 5;
 }
+.round-progress-wrapper circle {
+  stroke-width: 2px !important;
+  opacity: 0.5 !important;
+}
 .pbtn {
+  background: url(images/buttons.png) no-repeat 0 0;
+  cursor: pointer;
   display: block;
-  margin: 0 auto;
-  width: 18px;
+  width: 42px;
+  height: 42px;
+  margin: 0 -21px;
+  text-indent: -999em;
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
   z-index: 6;
 }
 th.logo_wrap {
@@ -52,15 +65,16 @@ h1.logo a {
 	display: block;
 	margin: 0 auto;
 	outline: none;
-	text-indent: -9999px;
+	text-indent: -999em;
 	width: 204px;
 	height: 26px;
 }
+/*
 .btn_play {
 	background: url(images/button_play_arrow.png) no-repeat 0 0;
 	display: block;
 	outline: none;
-	text-indent: -9999px;
+	text-indent: -999em;
 	width: 12px;
 	height: 18px;
 	position: absolute;
@@ -72,7 +86,7 @@ h1.logo a {
 	background: url(images/button_pause.png) no-repeat 0 0;
 	display: block;
 	outline: none;
-	text-indent: -9999px;
+	text-indent: -999em;
 	width: 12px;
 	height: 18px;
 	position: absolute;
@@ -80,6 +94,7 @@ h1.logo a {
 	left: 48.5%;
 	z-index: 10;
 }
+*/
 th.speedo_wrap {
 	background: url(images/bg_ac.jpg) no-repeat 0 0;
 	background-size: cover;

@@ -17,22 +17,25 @@
           <th class="logo_wrap">
           		<h1 class="logo"><a href="#">TP LINK</a></h1>
 	          	<div class="progress-wrapper">
-	              <a ng-click="toggleTicking()" class="pbtn">
+	              <a ng-click="toggleTicking()" class="pbtn play">Play</a>
+	              <a ng-click="toggleTicking()" class="pbtn x">X</a>
+	              <a ng-click="toggleTicking()" class="pbtn pause">Pause</a>
+                <!--
 	                <div ng-show="video_ticking"><span class="btn_play">Play</span></div>
 	                <div ng-hide="video_ticking"><span class="btn_pause">Pause</span></div>
-	              </a>
+	              -->
 	              <div
 	                round-progress
 	                max="video_every"
 	                current="video_timeuntil"
-	                color="#ff0"
-	                bgcolor="#333"
-	                radius="15"
+	                color="#fff"
+	                bgcolor="#fff"
+	                radius="21"
 	                semi="false"
-	                rounded="true"
+	                rounded="false"
 	                clockwise="true"
 	                responsive="false"
-	                stroke="2"
+	                stroke="4"
 	                animation="easeOutCubic">
 	              </div>
 	            </div>

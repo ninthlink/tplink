@@ -4,7 +4,7 @@ var TPLINK_CONFIG = {
   video_countdown_seconds: 60,
   
   // whether video should auto countdown or not
-  video_countdown_auto: false,
+  video_countdown_auto: true,
 
   // round the time calculations to __ decimal places
   time_decimals: 2,

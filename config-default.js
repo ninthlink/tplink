@@ -46,25 +46,25 @@ var TPLINK_CONFIG = {
   modes: [{
    key: 'ad',
    title: 'Wireless AD',
-   ghz: '60GHZ',
+   ghz: '60GHz',
    color: '#2976cb'
   },{
    key: 'ac',
    title: 'Wireless AC',
-   ghz: '5GHZ',
+   ghz: '5GHz',
    color: '#761e66'
   },{
    key: 'eth',
    title: 'Wireless N',
-   ghz: '2.4GHZ',
+   ghz: '2.4GHz',
    color: '#e46f00'
   }],
   
   // initial tput mbps estimated numbers. Keys should match keys of modes above
   initial_mbps: {
     ad: 2800,
-    ac: 1300,
-    eth: 1000
+    ac: 800,
+    eth: 200
   },
 
   // array of different types of file items to compare : repeat object for each

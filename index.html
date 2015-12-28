@@ -32,7 +32,7 @@
             <h2>{{wmode.title}} <span>{{wmode.ghz}}</span></h2>
             <div class="speedometer">
               <h3 ng-if="wmode.key == 'ad'"><span>AVERAGE</span><input type="num" ng-model="mbps.ad" size="4"> MBPS</h3>
-              <h3 ng-if="wmode.key != 'ad'"><span>AVERAGE</span>{{getmbps(wmode.key)}} MBPS</h3>
+              <h3 ng-if="wmode.key != 'ad'"><span>AVERAGE</span>{{getmbps(wmode.key)}} Mbps</h3>
               <div class="rprog">
                 <div round-progress max="mbps_max_scale" current="getmbps(wmode.key)" ng-attr-color="{{wmode.color}}" bgcolor="#fff" radius="124" semi="true" stroke="18" animation="linearEase"></div>
               </div>

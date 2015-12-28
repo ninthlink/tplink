@@ -33,14 +33,13 @@ var TPLINK_CONFIG = {
   // whether to run in LIVE mode, reading in the file(s) below, or Simulate
   live_mode: false,
   
-  // iperf output directory
+  // iPerf output directory
   iperf_dir: '/tplink/iperf',
   
-  // iperf output file(s) to try and read, inside the above iperf_dir
+  // iPerf output file(s) to try and read, inside the above iperf_dir
   iperf_files: [
     'iperf1.txt',
-    'iperf2.txt',
-    'iperf3.txt'
+    'iperf2.txt'
   ],
   
   // define our modes and some colors and such here
@@ -48,17 +47,17 @@ var TPLINK_CONFIG = {
    key: 'ad',
    title: 'Wireless AD',
    ghz: '60GHZ',
-   color: '#2976cb',
+   color: '#2976cb'
   },{
    key: 'ac',
    title: 'Wireless AC',
    ghz: '5GHZ',
-   color: '#761e66',
+   color: '#761e66'
   },{
    key: 'eth',
    title: 'Wireless N',
    ghz: '2.4GHZ',
-   color: '#e46f00',
+   color: '#e46f00'
   }],
   
   // initial tput mbps estimated numbers. Keys should match keys of modes above

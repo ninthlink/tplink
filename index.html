@@ -25,21 +25,7 @@
 	              <a ng-click="btnclick('play')" ng-show="!video_autocountdown || (video_autocountdown && (video_ticking || showvideomenu) )" class="pbtn play">Play</a>
 	              <a ng-click="btnclick('x')" ng-show="showvideomenu" class="pbtn x">X</a>
 	              <a ng-click="btnclick('pause')" ng-show="video_autocountdown && !video_ticking" class="pbtn pause">Pause</a>
-	              <div
-	                round-progress
-	                max="video_every"
-	                current="video_timeuntil"
-	                color="#fff"
-	                bgcolor="#fff"
-	                radius="21"
-	                semi="false"
-	                rounded="false"
-	                clockwise="true"
-	                responsive="false"
-	                stroke="4"
-                  duration="1000"
-	                animation="linearEase">
-	              </div>
+	              <div round-progress max="video_every" current="video_timeuntil" color="#fff" bgcolor="#fff" radius="21" stroke="4" duration="1000" animation="linearEase"></div>
 	            </div>
           </th>
           <th class="speedo_wrap ad_wrap">
@@ -48,20 +34,7 @@
           		<h3><span>AVERAGE</span><input type="num" name="admbps" ng-model="mbps.ad" size="4"> MBPS</h3>
           		<div class="router_icon"><img src="includes/images/icon_router.png" /></div>
               <div class="rprog">
-                <div
-                  round-progress
-                  max="mbps_max_scale"
-                  current="mbps.ad"
-                  color="#2976cb"
-                  bgcolor="#fff"
-                  radius="124"
-                  semi="true"
-                  rounded="false"
-                  clockwise="true"
-                  responsive="false"
-                  stroke="18"
-                  animation="linearEase">
-                </div>
+                <div round-progress max="mbps_max_scale" current="mbps.ad" color="#2976cb" bgcolor="#fff" radius="124" semi="true" stroke="18" animation="linearEase"></div>
               </div>
               <div class="needle" style="transform: rotate({{needle_deg.ad}}deg);"></div>
           	</div>
@@ -71,20 +44,7 @@
           	<div class="speedometer">
           		<h3><span>AVERAGE</span>{{mbps.ac}} MBPS</h3>
               <div class="rprog">
-                <div
-                  round-progress
-                  max="mbps_max_scale"
-                  current="mbps.ac"
-                  color="#761e66"
-                  bgcolor="#fff"
-                  radius="124"
-                  semi="true"
-                  rounded="false"
-                  clockwise="true"
-                  responsive="false"
-                  stroke="18"
-                  animation="linearEase">
-                </div>
+                <div round-progress max="mbps_max_scale" current="mbps.ac" color="#761e66" bgcolor="#fff" radius="124" semi="true" stroke="18" animation="linearEase"></div>
               </div>
               <div class="needle" style="transform: rotate({{needle_deg.ac}}deg);"></div>
           	</div>	
@@ -94,20 +54,7 @@
           	<div class="speedometer">
           		<h3><span>AVERAGE</span>{{mbps.eth}} MBPS</h3>
               <div class="rprog">
-                <div
-                  round-progress
-                  max="mbps_max_scale"
-                  current="mbps.eth"
-                  color="#e46f00"
-                  bgcolor="#fff"
-                  radius="124"
-                  semi="true"
-                  rounded="false"
-                  clockwise="true"
-                  responsive="false"
-                  stroke="18"
-                  animation="linearEase">
-                </div>
+                <div round-progress max="mbps_max_scale" current="mbps.eth" color="#e46f00" bgcolor="#fff" radius="124" semi="true" stroke="18" animation="linearEase"></div>
               </div>
               <div class="needle" style="transform: rotate({{needle_deg.eth}}deg);"></div>
           	</div>	

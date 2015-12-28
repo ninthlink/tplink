@@ -15,7 +15,6 @@
       <source ng-attr-src="{{video_src}}" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-  
     <table ng-cloak ng-hide="showvideo">
       <thead>
         <tr>
@@ -25,7 +24,7 @@
                 <a ng-click="btnclick('play')" ng-show="!video_autocountdown || (video_autocountdown && (video_ticking || showvideomenu) )" class="pbtn play">Play</a>
                 <a ng-click="btnclick('x')" ng-show="showvideomenu" class="pbtn x">X</a>
                 <a ng-click="btnclick('pause')" ng-show="video_autocountdown && !video_ticking" class="pbtn pause">Pause</a>
-                <div round-progress max="video_every" current="video_timeuntil" color="#fff" bgcolor="#fff" radius="21" stroke="4" duration="1000" animation="linearEase"></div>
+                <div round-progress max="video_every" current="video_timeuntil" color="#fff" bgcolor="#fff" radius="21" stroke="4" duration="1000" animation="linearEase" ng-hide="showvideomenu"></div>
               </div>
           </th>
           <th ng-repeat="wmode in modes" class="speedo_wrap ad_wrap">

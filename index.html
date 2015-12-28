@@ -20,32 +20,32 @@
       <thead>
         <tr>
           <th class="logo_wrap">
-          		<h1 class="logo"><a href="#">TP LINK</a></h1>
-	          	<div ng-if="video_src" class="progress-wrapper" ng-class="showvideomenu ? 'pmenu' : ''">
-	              <a ng-click="btnclick('play')" ng-show="!video_autocountdown || (video_autocountdown && (video_ticking || showvideomenu) )" class="pbtn play">Play</a>
-	              <a ng-click="btnclick('x')" ng-show="showvideomenu" class="pbtn x">X</a>
-	              <a ng-click="btnclick('pause')" ng-show="video_autocountdown && !video_ticking" class="pbtn pause">Pause</a>
-	              <div round-progress max="video_every" current="video_timeuntil" color="#fff" bgcolor="#fff" radius="21" stroke="4" duration="1000" animation="linearEase"></div>
-	            </div>
+              <h1 class="logo"><a href="#">TP LINK</a></h1>
+              <div ng-if="video_src" class="progress-wrapper" ng-class="showvideomenu ? 'pmenu' : ''">
+                <a ng-click="btnclick('play')" ng-show="!video_autocountdown || (video_autocountdown && (video_ticking || showvideomenu) )" class="pbtn play">Play</a>
+                <a ng-click="btnclick('x')" ng-show="showvideomenu" class="pbtn x">X</a>
+                <a ng-click="btnclick('pause')" ng-show="video_autocountdown && !video_ticking" class="pbtn pause">Pause</a>
+                <div round-progress max="video_every" current="video_timeuntil" color="#fff" bgcolor="#fff" radius="21" stroke="4" duration="1000" animation="linearEase"></div>
+              </div>
           </th>
           <th ng-repeat="wmode in modes" class="speedo_wrap ad_wrap">
-          	<h2>{{wmode.title}} <span>{{wmode.ghz}}</span></h2>
-          	<div class="speedometer">
-          		<h3 ng-if="wmode.key == 'ad'"><span>AVERAGE</span><input type="num" ng-model="mbps.ad" size="4"> MBPS</h3>
-          		<h3 ng-if="wmode.key != 'ad'"><span>AVERAGE</span>{{getmbps(wmode.key)}} MBPS</h3>
+            <h2>{{wmode.title}} <span>{{wmode.ghz}}</span></h2>
+            <div class="speedometer">
+              <h3 ng-if="wmode.key == 'ad'"><span>AVERAGE</span><input type="num" ng-model="mbps.ad" size="4"> MBPS</h3>
+              <h3 ng-if="wmode.key != 'ad'"><span>AVERAGE</span>{{getmbps(wmode.key)}} MBPS</h3>
               <div class="rprog">
                 <div round-progress max="mbps_max_scale" current="getmbps(wmode.key)" ng-attr-color="{{wmode.color}}" bgcolor="#fff" radius="124" semi="true" stroke="18" animation="linearEase"></div>
               </div>
               <div class="needle" style="transform: rotate({{needle_deg[wmode.key]}}deg);"></div>
-          	</div>
+            </div>
           </th>
         </tr>
       </thead>
       <tbody>
-      	<tr class="heading">
-      		<td class="head_label">FILE TYPE</td>
-      		<td ng-repeat="wmode in modes" class="head_label" ng-class="'label_'+ wmode.key">TRANSFER TIME <span class="down_arrow"></span></td>
-      	</tr>
+        <tr class="heading">
+          <td class="head_label">FILE TYPE</td>
+          <td ng-repeat="wmode in modes" class="head_label" ng-class="'label_'+ wmode.key">TRANSFER TIME <span class="down_arrow"></span></td>
+        </tr>
         <tr ng-repeat="row in files">
           <td class="label">
             <span class="icn" ng-class="row.type"></span><strong class="title">{{row.name}}</strong><br />

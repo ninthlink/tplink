@@ -11,9 +11,21 @@ See below for [installation instructions](#installation) and [configurations](#c
 2. To ensure that Permissions and everything else are configured correctly, we recommend running from an install of [XAMPP](https://www.apachefriends.org/download.html)
 3. Once XAMPP is installed on your Windows PC, download the [latest release](https://github.com/ninthlink/tplink/releases) and rename the directory to something like "tplink", and place it inside your htdocs folder.
 4. Copy the config-default.js and rename it config.js
-5. Follow the [configuration instructions](#configuration) below for more customization and setup as desired.
-6. Launch a Google Chrome browser window and navigate to http://localhost/tplink/ (or wherever you downloaded the files to)
- 
+5. Follow the [configuration instructions](#configuration) below for more customization and setup as desired. See additional notes below on Demo Mode / Live Mode / Video setup.
+6. Launch a Google Chrome browser window and navigate to http://localhost/tplink/ or wherever the files were downloaded
+
+### Demo Mode
+
+By default, the config-default.js is set with `live_mode` = `false` which means that the system will auto generate throughput numbers to simulate for comparison between whatever `modes` 11ad / 11ac / gigabit ethernet. In this case, you might not even need XAMPP in order to run the demo.
+
+### Live Mode
+
+`live_mode` = `true` was designed to parse a series of given output txt files from iPerf, parse the last found "Mbits/sec" number, and sum up whatever number from each of the `iper_files` provided in order to generate the Throughput number for 11ad and comparison calculations. iPerf should be configured to output the files to a subdirectory inside where these files are setup, so if you have set these up in your C:\xampp\htdocs\tplink , then iPerf should output to C:\xampp\htdocs\tplink\iperf , and the `iperf_dir` in the [config.js](#configuration) should be set to `'/tplink/iperf'`
+
+### Video playback
+
+While the GIT repo does not include any video file in it, if you save a video mp4 like a "demo.mp4" to a "video" subdirectory (/video/demo.mp4) and then set the `video` [configuration](#configuration) variable appropriately, the system will display a Play button that can be clicked to play the video full screen on top of the GUI. If the other variables of `video_countdown_seconds` and `video_countdown_auto` are also set, the GUI will automatically start a timer that will play the video after the X number of seconds, and the Play button can be clicked to Pause the timer countdown and/or automatically play the video at any time.
+
 ## configuration
 
 Note again that you need to copy the config-default.js and rename it to config.js in order to run the app. Once you have done so, the following items can be modified inside the [config.js](config-default.js} file :

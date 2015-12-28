@@ -170,15 +170,14 @@ function tplinkController( $scope, $filter, tputFactory, $timeout ) {
   // format time __ seconds or __ minutes __ seconds : maybe make directive?
   $scope.formatTime = function ( t ) {
     var oot = $filter('number')(t, 2);
-    if ( oot > 60 ) {
-      var m = Math.floor( oot / 60 );
-      var s = oot % 60;
-      oot = m +' minute'+ ( m > 1 ? 's' : '' ) +' '+ s;
-    }
     if ( oot == 0 ) {
       return '...';
     }
-    //return oot +' seconds';
+    if ( oot > 60 ) {
+      var m = $filter('number')( Math.floor( oot / 60 ), 0 );
+      var s = $filter('number')( oot % 60, 0 );
+      oot = m +' minute'+ ( m > 1 ? 's' : '' ) +' '+ s;
+    }
     return oot;
   };
   

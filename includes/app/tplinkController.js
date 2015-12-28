@@ -32,8 +32,19 @@ function tplinkController( $scope, $filter, tputFactory, $timeout ) {
   // round the time calculations to __ decimal places
   $scope.time_decimals = TPLINK_CONFIG.time_decimals;
   
+  // pull wifi modes info from the config.js too
+  $scope.modes = TPLINK_CONFIG.modes;
+  
   // "estimated" mbps
   $scope.mbps = TPLINK_CONFIG.initial_mbps;
+  
+  $scope.getmbps = function( key ) {
+    if ( $scope.mbps.hasOwnProperty( key ) ) {
+      return $scope.mbps[key];
+    } // else
+    return 0;
+  }
+  
   $scope.mbps_max_scale = TPLINK_CONFIG.mbps_max_scale;
   $scope.needle_deg = {
     ac: 0,

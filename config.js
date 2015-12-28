@@ -43,10 +43,28 @@ var TPLINK_CONFIG = {
     'iperf3.txt'
   ],
   
-  // initial tput mbps estimated numbers
+  // define our modes and some colors and such here
+  modes: [{
+   key: 'ad',
+   title: 'Wireless AD',
+   ghz: '60GHZ',
+   color: '#2976cb',
+  },{
+   key: 'ac',
+   title: 'Wireless AC',
+   ghz: '5GHZ',
+   color: '#761e66',
+  },{
+   key: 'eth',
+   title: 'Wireless N',
+   ghz: '2.4GHZ',
+   color: '#e46f00',
+  }],
+  
+  // initial tput mbps estimated numbers. Keys should match keys of modes above
   initial_mbps: {
-    ac: 1300,
     ad: 2800,
+    ac: 1300,
     eth: 1000
   },
 

@@ -250,11 +250,11 @@ th.speedo_wrap {
 .heading .head_label.label_ac span.down_arrow {
 	background: url(images/arrow_red.png) no-repeat 0 0;
 }
-.heading .head_label.label_n {
+.heading .head_label.label_eth {
 	background: #e46f00;
 	text-align: center;
 }
-.heading .head_label.label_n span.down_arrow {
+.heading .head_label.label_eth span.down_arrow {
 	background: url(images/arrow_orange.png) no-repeat 0 0;
 }
 td.label {

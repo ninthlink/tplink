@@ -39,6 +39,23 @@ function tplinkController( $scope, $filter, tputFactory, $timeout ) {
   // "estimated" mbps
   $scope.mbps = TPLINK_CONFIG.initial_mbps;
   
+  // tput arrays to cycle through?
+  $scope.mbps_arrays = TPLINK_CONFIG.mbps_arrays;
+  // parse and setup..
+  angular.forEach( $scope.mbps_arrays, function( value, key ) {
+    var arr = value;
+    var alength = arr.length;
+    if ( alength == 0 ) {
+      $scope.mbps_arrays[ key ] = false;
+    } else {
+      $scope.mbps_arrays[ key ] = {
+        index: -1,
+        count: alength,
+        values: arr
+      };
+    }
+  });
+  
   $scope.getmbps = function( key ) {
     if ( $scope.mbps.hasOwnProperty( key ) ) {
       return $scope.mbps[key];
@@ -134,29 +151,37 @@ function tplinkController( $scope, $filter, tputFactory, $timeout ) {
     }
   });
   
+  $scope.reloadOtherTputs = function() {
+    angular.forEach( $scope.mbps_arrays, function( value, key ) {
+      if ( value !== false ) {
+        value.index++;
+        if ( value.index >= value.count ) {
+          value.index = 0;
+        }
+        $scope.mbps[ key ] = value.values[ value.index ];
+      }
+    });
+  };
+  
   // determine whether we are in "live" file reading mode or demo generating
   if ( $scope.live_mode ) {
-    //console.log('LIVE mode : read 11ad files every '+ $scope.sample_rate );
     // and then? load files.. 
     $scope.reloadTputNow = function() {
-      //console.log('reloadTputNow');
       tputFactory.loadTputs().then( function( results ) {
-        //console.log('tputFactory returned!');
-        //console.log(results);
         if ( results.hasOwnProperty('total') ) {
           $scope.mbps.ad = results.total;
         }
-        //$scope.reprocessResults( results );
+        $scope.reloadOtherTputs();
       });
       // and no matter how long that takes, trigger this again
       $scope.reloadTput();
     };
   } else {
-    //console.log('NOT live mode : sim 11ad every '+ $scope.sample_rate );
     $scope.ad_range = TPLINK_CONFIG.mbps_max_demo_range;
     $scope.reloadTputNow = function() {
       var thespread = Math.floor( Math.random() * $scope.ad_range );
       $scope.mbps.ad = $scope.mbps_max_scale - $scope.ad_range + thespread;
+      $scope.reloadOtherTputs();
       // and again later
       $scope.reloadTput();
     };

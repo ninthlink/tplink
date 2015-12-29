@@ -8,7 +8,7 @@
  *
  * https://github.com/ninthlink/tplink
  *
- * v1.0.3 2015-12-29
+ * v1.0.4 2015-12-29
  */
 
 var TPLINK_CONFIG = {
@@ -71,6 +71,13 @@ var TPLINK_CONFIG = {
     ad: 2800,
     ac: 800,
     eth: 200
+  },
+  
+  // rather than static mbps #s, can cycle through array of simulated values
+  mbps_arrays: {
+    ad: [],
+    ac: [ 650, 648, 644, 652, 653, 649, 651, 648, 648, 652, 651, 652, 647, 649, 651 ],
+    eth: [ 180, 179, 183, 178, 177, 181, 176, 179, 177, 182, 176, 178, 177, 180, 183 ]
   },
 
   // array of different types of file items to compare : repeat object for each

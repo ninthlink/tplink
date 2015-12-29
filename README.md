@@ -51,6 +51,11 @@ Note again that you need to copy the config-default.js and rename it to config.j
 
 ## changelog
 
+### v1.0.5
+
++ Fixed issue where if a calculated time was more than 999 seconds, it wasn't formatting to minutes & seconds
++ Fixed a bug where the colors of the two text columns for 11ac and 11ad were switched
+
 ### v1.0.4
 
 + Added functionality to cycle the 5GHz and 2.4GHz values through an array of Mbps values rather than just staying static.

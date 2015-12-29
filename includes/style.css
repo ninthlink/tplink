@@ -261,7 +261,9 @@ th.speedo_wrap {
 	display: block;
 	font-size: 18px;
 	font-weight: 300;
-	line-height: 30px;
+	line-height: 24px;
+  margin: 0 auto 3px;
+  max-width: 150px;
 }
 .heading td.head_label {
 	background: #17467a;

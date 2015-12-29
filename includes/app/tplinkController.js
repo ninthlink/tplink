@@ -202,11 +202,12 @@ function tplinkController( $scope, $filter, tputFactory, $timeout ) {
     if ( oot == 0 ) {
       return '...';
     }
-    if ( oot > 60 ) {
-      var m = $filter('number')( Math.floor( oot / 60 ), 0 );
-      var s = $filter('number')( oot % 60, 0 );
+    if ( t > 60 ) {
+      var m = $filter('number')( Math.floor( t / 60 ), 0 );
+      var s = $filter('number')( t % 60, 0 );
       oot = m +' minute'+ ( m > 1 ? 's' : '' ) +' '+ s;
     }
+    console.log( 'formatTime : '+ t + ' :: '+ oot);
     return oot;
   };
   

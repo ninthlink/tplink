@@ -308,45 +308,40 @@ th.speedo_wrap {
 	background: url(images/arrow_orange.png) no-repeat 0 0;
 }
 td.label {
-	color: #000;
+	color: #222;
 	font-size: 17px;
 	font-weight: 400;
 	line-height: 24px;
 	padding: 0 20px;
 }
 td.label .title {
-	color: #000;
+	color: #222;
 	font-size: 24px;
 	font-weight: 700;
 	line-height: 28px;
 }
 td.label .icn {
-	background: url(images/icon_pdf.png) no-repeat 50% 10px;
+	background: url(images/icon_pdf.gif) no-repeat 50% 10px;
 	display: block;
 	float: left;
 	margin-right: 20px;
 	width: 34px;
 	height: 50px;
 }
-/*
-td.label .icn.pdf {
-	background: url(images/icon_pdf.png) no-repeat 50% 10px;
-}
-*/
 td.label .icn.ebook {
-	background-image: url(images/icon_ebook.png);
+	background-image: url(images/icon_ebook.gif);
 }
 td.label .icn.photo {
-	background-image: url(images/icon_photo.png);
+	background-image: url(images/icon_photo.gif);
 }
 td.label .icn.song {
-	background-image: url(images/icon_songs.png);
+	background-image: url(images/icon_songs.gif);
 }
 td.label .icn.hdmovie {
-	background-image: url(images/icon_hd.png);
+	background-image: url(images/icon_hd.gif);
 }
 td.label .icn.fourk {
-	background-image: url(images/icon_4k.png);
+	background-image: url(images/icon_4k.gif);
 }
 td.num {
 	color: #2976cb;

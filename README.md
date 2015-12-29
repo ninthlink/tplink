@@ -55,6 +55,7 @@ Note again that you need to copy the config-default.js and rename it to config.j
 
 + Fixed issue where if a calculated time was more than 999 seconds, it wasn't formatting to minutes & seconds
 + Fixed a bug where the colors of the two text columns for 11ac and 11ad were switched
++ Different icons for the left column items to match other TP-LINK branding initiatives
 
 ### v1.0.4
 

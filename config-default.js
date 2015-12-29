@@ -49,7 +49,7 @@ var TPLINK_CONFIG = {
   modes: [{
    key: 'ad',
    title: 'Wireless AD',
-   label: 'Realtime Throughput',
+   label: 'AVERAGE',
    ghz: '60GHz',
    color: '#2976cb'
   },{

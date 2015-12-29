@@ -68,7 +68,7 @@ var TPLINK_CONFIG = {
   
   // initial tput mbps estimated numbers. Keys should match keys of modes above
   initial_mbps: {
-    ad: 2800,
+    ad: 1800,
     ac: 800,
     eth: 200
   },
@@ -121,8 +121,8 @@ var TPLINK_CONFIG = {
   ],
   
   // arbitrary "max" MBPS to calculate the scaling of progress bars & needles
-  mbps_max_scale: 2800,
+  mbps_max_scale: 1800,
   
   // arbitrary range that 11ad could vary by, if in demo mode
-  mbps_max_demo_range: 800
+  mbps_max_demo_range: 200
 };

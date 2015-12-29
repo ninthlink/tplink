@@ -24,6 +24,9 @@ var TPLINK_CONFIG = {
   // round the time calculations to __ decimal places
   time_decimals: 2,
   
+  // extra multiplier for time calculations
+  time_calc_scale: 8,
+  
   // sampling rate of how many ms (1000 x # of seconds) to read or generate #s
   sample_rate: 5000,
   

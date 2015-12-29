@@ -30,6 +30,9 @@ function tplinkController( $scope, $filter, tputFactory, $timeout ) {
   // round the time calculations to __ decimal places
   $scope.time_decimals = TPLINK_CONFIG.time_decimals;
   
+  // extra multiplier for time calculations
+  $scope.time_calc_scale = TPLINK_CONFIG.time_calc_scale,
+  
   // pull wifi modes info from the config.js too
   $scope.modes = TPLINK_CONFIG.modes;
   
@@ -113,6 +116,9 @@ function tplinkController( $scope, $filter, tputFactory, $timeout ) {
       angular.forEach( $scope.files, function( value, key ) {
         // calcs
         value.timing[tputkey].time = value.fsize / tput;
+        if ( $scope.time_calc_scale ) {
+          value.timing[tputkey].time = value.timing[tputkey].time * $scope.time_calc_scale;
+        }
       });
       // and rotate needle
       $scope.needle_deg[tputkey] = Math.ceil( ( tput / $scope.mbps_max_scale ) * 180 );

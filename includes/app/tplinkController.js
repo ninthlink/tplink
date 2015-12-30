@@ -207,7 +207,6 @@ function tplinkController( $scope, $filter, tputFactory, $timeout ) {
       var s = $filter('number')( t % 60, 0 );
       oot = m +' minute'+ ( m > 1 ? 's' : '' ) +' '+ s;
     }
-    console.log( 'formatTime : '+ t + ' :: '+ oot);
     return oot;
   };
   
@@ -236,7 +235,6 @@ function tplinkController( $scope, $filter, tputFactory, $timeout ) {
         if ( $scope.video_timeuntil <= $scope.video_every ) {
           $scope.vidTimerTick();
         } else {
-          //console.log($scope.video_every +' SECONDS : PLAY VIDEO!');
           $scope.playVideo();
         }
       }, 1000 );

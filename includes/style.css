@@ -175,8 +175,9 @@ h1.logo a {
 th.speedo_wrap {
 	background: url(images/bg_ac.jpg) no-repeat 0 0;
 	background-size: cover;
-	padding: 0 20px;
+	padding: 0;
 	position: relative;
+  overflow: hidden;
 }
 .speedo_wrap.ad_wrap {
 	background: url(images/bg_ad.jpg) no-repeat 0 0;
@@ -224,8 +225,9 @@ th.speedo_wrap {
 }
 .rprog {
   position: absolute;
-  left: -17px;
+  left: 50%;
   top: 17px;
+  margin-left: -165px;
   -webkit-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);

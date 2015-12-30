@@ -51,6 +51,11 @@ Note again that you need to copy the config-default.js and rename it to config.j
 
 ## changelog
 
+### v1.0.6
+
++ Fixed a display bug where the "speedometer" meters were not lining up correctly on larger resolutions
++ Turned off a console.log message that was left on during the fixing of v1.0.5
+
 ### v1.0.5
 
 + Fixed issue where if a calculated time was more than 999 seconds, it wasn't formatting to minutes & seconds

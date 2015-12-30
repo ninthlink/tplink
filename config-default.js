@@ -8,7 +8,7 @@
  *
  * https://github.com/ninthlink/tplink
  *
- * v1.0.5 2015-12-29
+ * v1.0.6 2015-12-29
  */
 
 var TPLINK_CONFIG = {

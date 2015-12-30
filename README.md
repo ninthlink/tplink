@@ -55,6 +55,7 @@ Note again that you need to copy the config-default.js and rename it to config.j
 
 + Fixed a display bug where the "speedometer" meters were not lining up correctly on larger resolutions
 + Turned off a console.log message that was left on during the fixing of v1.0.5
++ Fix two tiny pixel artifacts in the "PDF" and "Ebooks" icons updated in v1.0.5
 
 ### v1.0.5
 

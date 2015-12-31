@@ -41,15 +41,20 @@ Note again that you need to copy the config-default.js and rename it to config.j
 | `timeout_ms` | How many ms (1000 x # of seconds) to allow trying to load file before fail | 1000 | Non-negative integer |
 | `live_mode` | `false` will cause the system to auto generate simulated values for the "11ad" MBPS Throughput. `true` will read the `iperf_files` below and attempt to parse throughput value(s) from there. | `false` | `true` or `false` |
 | `iperf_dir` | iPerf output directory to load the `iperf_files` from, if `live_mode` above is set to `true`. Note : must be an absolute link, so if your setup is running at http://localhost/tplink/ , the `iperf_dir` = `'/tplink/iperf'` or something like that. Without trailing slash at the end. | `'/tplink/iperf'` | string for absolute url of subdirectory |
-| `iperf_files` | Array of output file(s) from an iPerf setup to try and read if above `live_mode` = `true`, located inside the above `iperf_dir` | `[ 'iperf1.txt', 'iperf2.txt' ]` | array of string(s) |
+| `iperf_files` | Array of output file(s) from an iPerf setup to try and read if above `live_mode` = `true`, located inside the above `iperf_dir` | `[ 'iperf1.txt' ]` | array of string(s) |
 | `modes` | Array of objects with information about the 3 Modes we are comparing | `[{ key: 'ad', title: 'Wireless AD', label: 'AVERAGE', ghz: '60GHz', color: '#2976cb' },...]` | see default value |
 | `initial_mbps` | Object with initial throughput MBPS estimated numbers. Keys should match keys of modes above | `{ ad: 2800, ac: 1300, eth: 1000 }` | see default value |
 | `mbps_arrays` | Object with three arrays for mbps cycling through static values, or empty array to not or to indicate loading dynamically. Keys should match keys of modes above | `{ ad: [], ac: [ 650, 648, 644, 652, 653, 649, 651, 648, 648, 652, 651, 652, 647, 649, 651 ], eth: [ 180, 179, 183, 178, 177, 181, 176, 179, 177, 182, 176, 178, 177, 180, 183 ] }` | see default value |
 | `files_array` | Array of different types of file items to compare : repeat object for each. | `[{ type: 'pdf', name: 'PDF', qty: 1000, mb: 0.6 },...]` | see default value |
 | `mbps_max_scale` | Semi-arbitrary "max" MBPS to calculate the scaling of progress bars & needles | 2800 | Positive integer |
+| `mbps_needle_magic_mult` | "magic" multiplier to fix converting mpbs / mbps_max_scale to some degrees | 355 | Positive integer |
 | `mbps_max_demo_range` | Semi-arbitrary range that 11ad could vary by, if in demo mode ( `live_mode` = `false` | 800 | Positive integer |
 
 ## changelog
+
+### v1.0.8
+
++ Updated html & css & calculations in the angularJS tplinkController.js to make the "speedometer" dial more maxed out and not just max of semi circle
 
 ### v1.0.7
 

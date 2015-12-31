@@ -4,7 +4,7 @@
  *
  * https://invis.io/FR5CIFLES
  *
- * v1.0.7 2015-12-29
+ * v1.0.8 2015-12-29
  */
 
 @font-face {
@@ -97,9 +97,12 @@ td.num {
   position: relative;
   z-index: 5;
 }
-.round-progress-wrapper circle {
+.logo_wrap .round-progress-wrapper circle {
   stroke-width: 2px !important;
   opacity: 0.5 !important;
+}
+.rprog circle {
+  display: none;
 }
 .pbtn {
   background: url(images/buttons.png) no-repeat 0 0;
@@ -226,11 +229,11 @@ th.speedo_wrap {
 .rprog {
   position: absolute;
   left: 50%;
-  top: 17px;
-  margin-left: -165px;
-  -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  transform: rotate(-45deg);
+  top: -5px;
+  margin-left: -122px;
+  -webkit-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  transform: rotate(-135deg);
 }
 .needle {
   background: url(images/needle.png) no-repeat 50% 50%;

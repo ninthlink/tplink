@@ -8,7 +8,7 @@
  *
  * https://github.com/ninthlink/tplink
  *
- * v1.0.7 2015-12-29
+ * v1.0.8 2015-12-29
  */
 
 var TPLINK_CONFIG = {
@@ -41,8 +41,7 @@ var TPLINK_CONFIG = {
   
   // iPerf output file(s) to try and read, inside the above iperf_dir
   iperf_files: [
-    'iperf1.txt',
-    'iperf2.txt'
+    'iperf1.txt'
   ],
   
   // define our modes and some colors and such here
@@ -121,7 +120,10 @@ var TPLINK_CONFIG = {
   ],
   
   // arbitrary "max" MBPS to calculate the scaling of progress bars & needles
-  mbps_max_scale: 1800,
+  mbps_max_scale: 2800,
+  
+  // "magic" multiplier to fix converting mpbs / mbps_max_scale to some degrees
+  mbps_needle_magic_mult: 355,
   
   // arbitrary range that 11ad could vary by, if in demo mode
   mbps_max_demo_range: 200

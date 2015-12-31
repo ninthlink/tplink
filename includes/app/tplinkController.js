@@ -126,6 +126,7 @@ function tplinkController( $scope, $filter, tputFactory, $timeout ) {
   
   // function to iterate each $scope.files & calc times forEach mbps
   $scope.calcLoop = function() {
+    var multfix = TPLINK_CONFIG.hasOwnProperty('mbps_needle_magic_mult') ? TPLINK_CONFIG.mbps_needle_magic_mult : 355;
     // loop through for each
     angular.forEach( $scope.mbps, function( value, key ) {
       var tput = value;
@@ -138,7 +139,7 @@ function tplinkController( $scope, $filter, tputFactory, $timeout ) {
         }
       });
       // and rotate needle
-      $scope.needle_deg[tputkey] = Math.ceil( ( tput / $scope.mbps_max_scale ) * 355 );
+      $scope.needle_deg[tputkey] = Math.ceil( ( tput / $scope.mbps_max_scale ) * multfix );
     });
   };
   // initial calc

@@ -51,6 +51,11 @@ Note again that you need to copy the config-default.js and rename it to config.j
 
 ## changelog
 
+### v1.0.7
+
++ To preved Chrome from trying to load iperf files from cache, append timestamp as a GET parameter to any $http.get calls
++ Add extra css class to load a version of the speedometer needle with shadow on the left when it is rotated that way
+
 ### v1.0.6
 
 + Fixed a display bug where the "speedometer" meters were not lining up correctly on larger resolutions

@@ -8,7 +8,7 @@
  *
  * https://github.com/ninthlink/tplink
  *
- * v1.0.6 2015-12-29
+ * v1.0.7 2015-12-29
  */
 
 // set up the Angular app referenced in <html ng-app="..." with dependency

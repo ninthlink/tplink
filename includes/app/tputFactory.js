@@ -59,8 +59,11 @@ function tputFactory( $http, $q, $timeout ) {
    * obscures $http.get requests?
    */
   o.getTputData = function( n, fname, defer ) {
+    var fstr = iperf_dir +'/'+ fname;
+    // bust cache?
+    fstr += '?t='+ new Date().getTime();
     //console.log( 'getTputData : mode = '+ mode +' , n = '+ n +', fname = '+ fname );
-    return $http.get( iperf_dir +'/'+ fname, { timeout: defer.promise });
+    return $http.get( fstr, { timeout: defer.promise });
   };
   /**
    * gets response from getTputData and does some parsing to conglomerate feeds together?
